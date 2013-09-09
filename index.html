@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="" content="">
+  <meta name="" content="">
+  <title>Modal Screen</title>
+  <link rel="stylesheet" href="http://meyerweb.com/eric/tools/css/reset/reset200802.css">
+  <style type="text/css">
+    .box {
+      margin: 8px;
+      padding: 64px 16px;
+      background: #f5f4f3;
+      border: 4px solid #ffffff;
+      text-align: center;
+      font-size: 160%;
+      font-weight: bold;
+    }
+    .box1 { border-color: #00A8C6; color: #00A8C6; }
+    .box2 { border-color: #40C0CB; color: #40C0CB; }
+    .box3 { border-color: #AEE239; color: #AEE239; }
+    .box4 { border-color: #8FBE00; color: #8FBE00; }
+
+    .screen {
+      background: rgba(0,0,0,.5);
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: -webkit-box;
+      -webkit-box-pack: center;
+      -webkit-box-align: center;
+      visibility: hidden;
+    }
+    .popup {
+      width: 80%;
+      border: 2px solid #FDA099;
+      padding: 16px;
+      border-radius: 8px;
+      background: #ffffff;
+    }
+    .popup1 {
+      border-color: #00A8C6;
+      color: #00A8C6;
+    }
+    .popup2 {
+      border-color: #40C0CB;
+      color: #40C0CB;
+    }
+    .popup3 {
+      border-color: #AEE239;
+      color: #AEE239;
+    }
+    .popup4 {
+      border-color: #8FBE00;
+      color: #8FBE00;
+    }
+    .popup p {
+      text-align: center;
+      font-size: 120%;
+      margin-bottom: 16px;
+    }
+    .popup ul {
+      text-align: center;
+    }
+    .popup ul li {
+      width: 45%;
+      display: inline-block;
+      padding-bottom: 2px;
+      background: #dddddd;
+      border-radius: 4px;
+    }
+    .btn {
+      text-align: center;
+      text-decoration: none;
+      color: #737373;
+      display: block;
+      padding: 8px;
+      border: 1px solid #dddddd;
+      border-radius: 4px;
+      background: #f5f5f5;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box box1">box1</div>
+  <div class="box box2">box2</div>
+  <div class="box box3">box3</div>
+  <div class="box box4">box4</div>
+
+  <div class="screen screen1">
+    <div class="popup popup1">
+      <p>you click box1?</p>
+      <ul>
+        <li><a href="#" class="btn btn-2" data-ui="btn-cancel">No</a></li>
+        <li><a href="#" class="btn btn-1" data-ui="btn-ok">Yes</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="screen screen2">
+    <div class="popup popup2">
+      <p>jump to twitter.com?</p>
+      <ul>
+        <li><a href="#" class="btn btn-2" data-ui="btn-cancel">No</a></li>
+        <li><a href="#" class="btn btn-1" data-ui="btn-ok">Yes</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="screen screen3">
+    <div class="popup popup3">
+      <p>jump to www.evernote.com?</p>
+      <ul>
+        <li><a href="#" class="btn btn-2" data-ui="btn-cancel">No</a></li>
+        <li><a href="#" class="btn btn-1" data-ui="btn-ok">Yes</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="screen screen4">
+    <div class="popup popup4">
+      <p>jump to www.naver.jp?</p>
+      <ul>
+        <li><a href="#" class="btn btn-2" data-ui="btn-cancel">No</a></li>
+        <li><a href="#" class="btn btn-1" data-ui="btn-ok">Yes</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="http://codeorigin.jquery.com/jquery-2.0.3.min.js"></script>
+  <!--<script type="text/javascript" src="http:////cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js"></script>-->
+  <script type="text/javascript" src="js/veil.js"></script>
+  <script type="text/javascript">
+    function onClickBox1() {
+      alert('click Yes');
+    }
+    function onClickBox2() {
+      location.href = 'http://twitter.com';
+    }
+    function onClickBox3() {
+      location.href = 'http://www.evernote.com';
+    }
+    function onClickBox4() {
+      location.href = 'http://www.naver.jp';
+    }
+
+    $(function(){
+      $('.box1').veil({
+        screen: $('.screen1'),
+        callback: onClickBox1
+      });
+      $('.box2').veil({
+        screen: $('.screen2'),
+        callback: onClickBox2
+      });
+      $('.box3').veil({
+        screen: $('.screen3'),
+        callback: onClickBox3
+      });
+      $('.box4').veil({
+        screen: $('.screen4'),
+        callback: onClickBox4
+      });
+    });
+  </script>
+</body>
+</html>
